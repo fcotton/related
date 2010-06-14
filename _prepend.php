@@ -10,9 +10,9 @@
 # -- END LICENSE BLOCK ------------------------------------
 global $__autoload, $core;
 
-$__autoload['dcRelated'] = dirname(__FILE__).'/class.dc.related.php';
-$__autoload['rsRelated'] = dirname(__FILE__).'/class.dc.related.php';
-$__autoload['adminPageList'] = dirname(__FILE__).'/class.dc.related.php';
+$__autoload['dcRelated']		= dirname(__FILE__).'/inc/class.dc.related.php';
+$__autoload['rsRelated']		= dirname(__FILE__).'/inc/class.dc.related.php';
+$__autoload['adminPageList']	= dirname(__FILE__).'/inc/class.dc.related.php';
 
 // Setting custom URL handler
 $url_prefix = $core->blog->settings->related->related_url_prefix;
@@ -126,10 +126,10 @@ class behaviorRelated
 	{
 		global $core;
 		
-		if ($core->blog->settings->sitemaps_related_url)
+		if ($core->blog->settings->sitemaps->sitemaps_related_url)
 		{
-			$freq = $sitemaps->getFrequency($core->blog->settings->sitemaps_related_fq);
-			$prio = $sitemaps->getPriority($core->blog->settings->sitemaps_related_pr);
+			$freq = $sitemaps->getFrequency($core->blog->settings->sitemaps->sitemaps_related_fq);
+			$prio = $sitemaps->getPriority($core->blog->settings->sitemaps->sitemaps_related_pr);
 
 			$rs = $core->blog->getPosts(array(
 					'post_type' => 'related',

@@ -140,7 +140,7 @@ if (isset($_POST['saveconfig']))
 		echo
 		dcPage::jsToolMan().
 		dcPage::jsPageTabs($default_tab).
-		dcPage::jsLoad('index.php?pf=related/_pages.js');
+		dcPage::jsLoad('index.php?pf=related/js/_pages.js');
 		?>
 	</head>
 	<body>

@@ -11,11 +11,10 @@
 if (!defined('DC_CONTEXT_ADMIN')) exit;
 
 $what = (!empty($_REQUEST['do']) && $_REQUEST['do'] == 'edit') ? 'page' : 'panel';
-
 if ($what == 'page') {
-	require_once dirname(__FILE__).'/page.php';
+	require_once dirname(__FILE__).'/inc/page.php';
 }
 else {
-	require_once dirname(__FILE__).'/panel.php';
+	require_once dirname(__FILE__).'/inc/panel.php';
 }
 ?>

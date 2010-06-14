@@ -35,7 +35,7 @@ class tplRelated
 				'include $related_file;'."\n".
 			"} else { \n".
 				'$previous_tpl_path = $core->tpl->getPath();'."\n".
-				'$core->tpl->setPath($core->blog->settings->related_files_path);'."\n".
+				'$core->tpl->setPath($core->blog->settings->related->related_files_path);'."\n".
 				'echo $core->tpl->getData(basename($related_file));'."\n".
 				'$core->tpl->setPath($previous_tpl_path);'."\n".
 				'unset($previous_tpl_path);'."\n".

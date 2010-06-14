@@ -338,7 +338,7 @@ if (!$can_edit_post || !empty($_POST['preview'])) {
 <?php
 echo dcPage::jsDatePicker().
 	dcPage::jsToolBar().
-	dcPage::jsLoad(DC_ADMIN_URL.'?pf=related/_page.js').
+	dcPage::jsLoad(DC_ADMIN_URL.'?pf=related/js/_page.js').
 	dcPage::jsConfirmClose('entry-form').
 	# --BEHAVIOR-- adminRelatedHeaders
 	$core->callBehavior('adminRelatedHeaders').	
