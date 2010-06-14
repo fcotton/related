@@ -1,0 +1,290 @@
+# SOME DESCRIPTIVE TITLE.
+# Copyright (C) YEAR THE PACKAGE'S COPYRIGHT HOLDER
+# This file is distributed under the same license as the PACKAGE package.
+# FIRST AUTHOR <EMAIL@ADDRESS>, YEAR.
+#
+#, fuzzy
+msgid ""
+msgstr ""
+"Project-Id-Version: PACKAGE VERSION\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-31 17:23+0200\n"
+"PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
+"Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
+"Language-Team: LANGUAGE <LL@li.org>\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=CHARSET\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: _admin.php:24 _prepend.php:135 _widgets.php:44 _widgets.php:63 page.php:348
+#: page.php:361 panel.php:149 panel.php:158
+msgid "Related pages"
+msgstr ""
+
+#: _admin.php:28
+msgid "manage related pages"
+msgstr ""
+
+#: _install.php:32
+msgid "The required plugin \"metadata\" is missing."
+msgstr ""
+
+#: _install.php:41 panel.php:139
+msgid "Directory for related files repository needs to allow read and write access."
+msgstr ""
+
+#: _widgets.php:64 page.php:454
+msgid "Title:"
+msgstr ""
+
+#: _widgets.php:65
+msgid "Home page only"
+msgstr ""
+
+#: class.dc.related.php:99 panel.php:225
+msgid "No page"
+msgstr ""
+
+#: class.dc.related.php:107
+msgid "Title"
+msgstr ""
+
+#: class.dc.related.php:108
+msgid "Date"
+msgstr ""
+
+#: class.dc.related.php:109
+msgid "Author"
+msgstr ""
+
+#: class.dc.related.php:110
+msgid "Type"
+msgstr ""
+
+#: class.dc.related.php:111
+msgid "Status"
+msgstr ""
+
+#: class.dc.related.php:118 class.dc.related.php:125
+msgid "Page(s)"
+msgstr ""
+
+#: class.dc.related.php:133
+msgid "published"
+msgstr ""
+
+#: class.dc.related.php:134
+msgid "unpublished"
+msgstr ""
+
+#: class.dc.related.php:135
+msgid "pending"
+msgstr ""
+
+#: class.dc.related.php:140
+msgid "protected"
+msgstr ""
+
+#: class.dc.related.php:146
+msgid "included page"
+msgstr ""
+
+#: class.dc.related.php:146
+msgid "post as page"
+msgstr ""
+
+#: class.dc.related.php:156
+msgid "%Y-%m-%d %H:%M"
+msgstr ""
+
+#: page.php:43
+msgid "New page"
+msgstr ""
+
+#: page.php:81
+msgid "This page does not exist."
+msgstr ""
+
+#: page.php:104 page.php:408
+msgid "Edit page"
+msgstr ""
+
+#: page.php:244 page.php:291
+msgid "Missing file."
+msgstr ""
+
+#: page.php:364
+msgid "Page has been successfully updated."
+msgstr ""
+
+#: page.php:367
+msgid "Page has been successfully created."
+msgstr ""
+
+#: page.php:374 page.php:376
+msgid "view page"
+msgstr ""
+
+#: page.php:389 page.php:397
+msgid "Page preview"
+msgstr ""
+
+#: page.php:413
+msgid "Page status:"
+msgstr ""
+
+#: page.php:417
+msgid "Text formating:"
+msgstr ""
+
+#: page.php:422
+msgid "Basename:"
+msgstr ""
+
+#: page.php:426
+msgid "Warning: If you set the URL manually, it may conflict with another entry."
+msgstr ""
+
+#: page.php:432
+msgid "More options"
+msgstr ""
+
+#: page.php:433
+msgid "Page lang:"
+msgstr ""
+
+#: page.php:437
+msgid "Published on:"
+msgstr ""
+
+#: page.php:441
+msgid "Page password:"
+msgstr ""
+
+#: page.php:454 page.php:467 page.php:476
+msgid "Required field"
+msgstr ""
+
+#: page.php:459
+msgid "Summary:"
+msgstr ""
+
+#: page.php:468
+msgid "Content:"
+msgstr ""
+
+#: page.php:477
+msgid "Included file:"
+msgstr ""
+
+#: page.php:482
+msgid "Pick up a local file in your related pages repository"
+msgstr ""
+
+#: page.php:486
+msgid "or upload a new file"
+msgstr ""
+
+#: page.php:496
+msgid "Notes:"
+msgstr ""
+
+#: page.php:508
+msgid "save"
+msgstr ""
+
+#: page.php:510
+msgid "preview"
+msgstr ""
+
+#: page.php:512 panel.php:66
+msgid "delete"
+msgstr ""
+
+#: panel.php:58
+msgid "publish"
+msgstr ""
+
+#: panel.php:59
+msgid "unpublish"
+msgstr ""
+
+#: panel.php:60
+msgid "mark as pending"
+msgstr ""
+
+#: panel.php:63
+msgid "change author"
+msgstr ""
+
+#: panel.php:108
+msgid "Pages list has been successfully sorted."
+msgstr ""
+
+#: panel.php:137
+msgid "Configuration successfully updated."
+msgstr ""
+
+#: panel.php:164
+msgid "Manage pages"
+msgstr ""
+
+#: panel.php:165
+msgid "New post as page"
+msgstr ""
+
+#: panel.php:166
+msgid "New included page"
+msgstr ""
+
+#: panel.php:175
+msgid "Selected entries action:"
+msgstr ""
+
+#: panel.php:177
+msgid "ok"
+msgstr ""
+
+#: panel.php:189
+msgid "Arrange public list"
+msgstr ""
+
+#: panel.php:199
+msgid "Order"
+msgstr ""
+
+#: panel.php:200
+msgid "Visible"
+msgstr ""
+
+#: panel.php:201
+msgid "Page title"
+msgstr ""
+
+#: panel.php:220
+msgid "Save"
+msgstr ""
+
+#: panel.php:234
+msgid "Options"
+msgstr ""
+
+#: panel.php:237
+msgid "General options"
+msgstr ""
+
+#: panel.php:238
+msgid "Repository path :"
+msgstr ""
+
+#: panel.php:243
+msgid "Advanced options"
+msgstr ""
+
+#: panel.php:244
+msgid "URL prefix :"
+msgstr ""
+
+#: panel.php:250
+msgid "Save configuration"
+msgstr ""

@@ -1,0 +1,316 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: \n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2008-05-31 17:23+0200\n"
+"PO-Revision-Date: \n"
+"Last-Translator: Pep <pep@dotclear.net>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"X-Poedit-Language: French\n"
+"X-Poedit-Country: FRANCE\n"
+"X-Poedit-SourceCharset: iso-8859-1\n"
+
+#: _admin.php:24
+#: _prepend.php:135
+#: _widgets.php:44
+#: _widgets.php:63
+#: page.php:348
+#: page.php:361
+#: panel.php:149
+#: panel.php:158
+msgid "Related pages"
+msgstr "Pages connexes"
+
+#: _admin.php:28
+msgid "manage related pages"
+msgstr "Gérer les pages connexes"
+
+#: _install.php:32
+msgid "The required plugin \"metadata\" is missing."
+msgstr "L'extension \"metadata\" est nécessaire mais manquante."
+
+#: _install.php:41
+#: panel.php:139
+msgid "Directory for related files repository needs to allow read and write access."
+msgstr "Le répertoire pour le dépôt des fichiers liés nécessite un accès en lecture et écriture."
+
+#: _widgets.php:64
+#: page.php:454
+msgid "Title:"
+msgstr "Titre :"
+
+#: _widgets.php:65
+msgid "Home page only"
+msgstr "Page d'accueil uniquement"
+
+#: class.dc.related.php:99
+#: panel.php:225
+msgid "No page"
+msgstr "Aucune page"
+
+#: class.dc.related.php:107
+msgid "Title"
+msgstr "Titre"
+
+#: class.dc.related.php:108
+msgid "Date"
+msgstr "Date"
+
+#: class.dc.related.php:109
+msgid "Author"
+msgstr "Auteur"
+
+#: class.dc.related.php:110
+msgid "Type"
+msgstr "Type"
+
+#: class.dc.related.php:111
+msgid "Status"
+msgstr "État"
+
+#: class.dc.related.php:118
+#: class.dc.related.php:125
+msgid "Page(s)"
+msgstr "Page(s)"
+
+#: class.dc.related.php:133
+msgid "published"
+msgstr "publié"
+
+#: class.dc.related.php:134
+msgid "unpublished"
+msgstr "hors ligne"
+
+#: class.dc.related.php:135
+msgid "pending"
+msgstr "en attente"
+
+#: class.dc.related.php:140
+msgid "protected"
+msgstr "protégé"
+
+#: class.dc.related.php:146
+msgid "included page"
+msgstr "page incluse"
+
+#: class.dc.related.php:146
+msgid "post as page"
+msgstr "page d'après un billet"
+
+#: class.dc.related.php:156
+msgid "%Y-%m-%d %H:%M"
+msgstr "%Y-%m-%d %H:%M"
+
+#: page.php:43
+msgid "New page"
+msgstr "Nouvelle page"
+
+#: page.php:81
+msgid "This page does not exist."
+msgstr "Cette page n'existe pas."
+
+#: page.php:104
+#: page.php:408
+msgid "Edit page"
+msgstr "Éditer la page"
+
+#: page.php:244
+#: page.php:291
+msgid "Missing file."
+msgstr "Fichier manquant."
+
+#: page.php:364
+msgid "Page has been successfully updated."
+msgstr "La page a été mise à jour avec succès."
+
+#: page.php:367
+msgid "Page has been successfully created."
+msgstr "La page a été créée avec succès."
+
+#: page.php:374
+#: page.php:376
+msgid "view page"
+msgstr "voir la page"
+
+#: page.php:389
+#: page.php:397
+msgid "Page preview"
+msgstr "Prévisualisation de la page"
+
+#: page.php:413
+msgid "Page status:"
+msgstr "État de la page :"
+
+#: page.php:417
+msgid "Text formating:"
+msgstr "Format du texte :"
+
+#: page.php:422
+msgid "Basename:"
+msgstr "URL spécifique :"
+
+#: page.php:426
+msgid "Warning: If you set the URL manually, it may conflict with another entry."
+msgstr "Attention : si vous indiquez l'URL manuellement, celle-ci peut entrer en conflit avec une autre page."
+
+#: page.php:432
+msgid "More options"
+msgstr "Plus d'options"
+
+#: page.php:433
+msgid "Page lang:"
+msgstr "Langue de la page :"
+
+#: page.php:437
+msgid "Published on:"
+msgstr "Publié le :"
+
+#: page.php:441
+msgid "Page password:"
+msgstr "Mot de passe de la page :"
+
+#: page.php:454
+#: page.php:467
+#: page.php:476
+msgid "Required field"
+msgstr "Champ obligatoire"
+
+#: page.php:459
+msgid "Summary:"
+msgstr "Résumé :"
+
+#: page.php:468
+msgid "Content:"
+msgstr "Contenu :"
+
+#: page.php:477
+msgid "Included file:"
+msgstr "Page incluse :"
+
+#: page.php:482
+msgid "Pick up a local file in your related pages repository"
+msgstr "Choisissez un fichier local dans votre dépôt de pages connexes"
+
+#: page.php:486
+msgid "or upload a new file"
+msgstr "ou téléchargez un nouveau fichier"
+
+#: page.php:496
+msgid "Notes:"
+msgstr "Notes :"
+
+#: page.php:508
+msgid "save"
+msgstr "enregistrer"
+
+#: page.php:510
+msgid "preview"
+msgstr "prévisualiser"
+
+#: page.php:512
+#: panel.php:66
+msgid "delete"
+msgstr "supprimer"
+
+#: panel.php:58
+msgid "publish"
+msgstr "publier"
+
+#: panel.php:59
+msgid "unpublish"
+msgstr "mettre hors ligne"
+
+#: panel.php:60
+msgid "mark as pending"
+msgstr "mettre en attente"
+
+#: panel.php:63
+msgid "change author"
+msgstr "changer l'auteur"
+
+#: panel.php:108
+msgid "Pages list has been successfully sorted."
+msgstr "La liste des pages connexes a été réordonnancée avec succès."
+
+#: panel.php:137
+msgid "Configuration successfully updated."
+msgstr "Configuration mise à jour avec succès."
+
+#: panel.php:164
+msgid "Manage pages"
+msgstr "Gérer les pages"
+
+#: panel.php:165
+msgid "New post as page"
+msgstr "Nouvelle page d'après un billet"
+
+#: panel.php:166
+msgid "New included page"
+msgstr "Nouvelle page incluse"
+
+#: panel.php:175
+msgid "Selected entries action:"
+msgstr "Action sur les entrées sélectionnées :"
+
+#: panel.php:177
+msgid "ok"
+msgstr "ok"
+
+#: panel.php:189
+msgid "Arrange public list"
+msgstr "Ordonnancer la liste publique"
+
+#: panel.php:199
+msgid "Order"
+msgstr "Trier"
+
+#: panel.php:200
+msgid "Visible"
+msgstr "Visible"
+
+#: panel.php:201
+msgid "Page title"
+msgstr "Titre de la page"
+
+#: panel.php:220
+msgid "Save"
+msgstr "Enregistrer"
+
+#: panel.php:234
+msgid "Options"
+msgstr "Options"
+
+#: panel.php:237
+msgid "General options"
+msgstr "Options générales"
+
+#: panel.php:238
+msgid "Repository path :"
+msgstr "Chemin du dépôt des pages incluses :"
+
+#: panel.php:243
+msgid "Advanced options"
+msgstr "Options avancées"
+
+#: panel.php:244
+msgid "URL prefix :"
+msgstr "Préfixe d'URL :"
+
+#: panel.php:250
+msgid "Save configuration"
+msgstr "Enregistrer la configuration"
+
+#~ msgid "Are you sure you want to delete selected pages?"
+#~ msgstr "Êtes-vous certain de vouloir supprimer les pages sélectionnées ?"
+#~ msgid "This user does not exists"
+#~ msgstr "Cet utilisateur n'existe pas"
+#~ msgid "Pages"
+#~ msgstr "Pages"
+#~ msgid "Author ID:"
+#~ msgstr "ID de l'auteur"
+#~ msgid "back"
+#~ msgstr "retour"
+
