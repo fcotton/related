@@ -10,9 +10,6 @@
 # -- END LICENSE BLOCK ------------------------------------
 if (!defined('DC_RC_PATH')) return;
 
-//$core->addBehavior('initWidgets',array('widgetsRelated','init'));
-
-
 class relatedHelpers
 {
 	public static function getPublicList($rs)

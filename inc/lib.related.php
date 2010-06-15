@@ -8,6 +8,8 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
+if (!defined('DC_RC_PATH')) return;
+
 class rsRelated extends rsRelatedBase
 {
 	public static function isEditable($rs)
