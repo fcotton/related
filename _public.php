@@ -8,17 +8,90 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-require_once dirname(__FILE__).'/_widgets.php';
+if (!defined('DC_RC_PATH')) return;
 
-$core->addBehavior('coreBlogGetPosts',    array('behaviorRelated','coreBlogGetPosts'));
-$core->addBehavior('publicBeforeDocument',array('behaviorRelated','addTplPath'));
-$core->addBehavior('templateBeforeBlock', array('behaviorRelated','templateBeforeBlock'));
-$core->addBehavior('sitemapsURLsCollect', array('behaviorRelated','sitemapsURLsCollect'));
-
-$core->tpl->addValue('EntryContent', array('tplRelated', 'PageContent'));
-
-class tplRelated
+// Public behaviors definition and binding
+/**
+ * 
+ */
+class relatedPublicBehaviors
 {
+	/**
+	 * 
+	 */
+	public static function addTplPath($core)
+	{
+		$core->tpl->setPath($core->tpl->getPath(), dirname(__FILE__).'/default-templates');
+	}
+
+	/**
+	 * 
+	 */
+	public static function templateBeforeBlock()
+	{
+		$args = func_get_args();
+		array_shift($args);
+		
+		if ($args[0] == 'Entries') {
+			if (!empty($args[1])) {
+				$attrs = $args[1];
+				if (!empty($attrs['type']) && $attrs['type'] == 'related') {
+					$p = "<?php \$params['post_type'] = 'related'; ?>\n";
+					if (!empty($attrs['basename'])) {
+						$p .= "<?php \$params['post_url'] = '".$attrs['basename']."'; ?>\n";
+					}
+					return $p;
+				}
+			}
+		}
+	}
+
+	/**
+	 * 
+	 */
+	public static function coreBlogGetPosts($rs)
+	{
+		$rs->extend("rsRelated");
+	}
+
+	/**
+	 * 
+	 */
+	public static function sitemapsURLsCollect($sitemaps)
+	{
+		global $core;
+		
+		if ($core->blog->settings->sitemaps->sitemaps_related_url) {
+			$freq = $sitemaps->getFrequency($core->blog->settings->sitemaps->sitemaps_related_fq);
+			$prio = $sitemaps->getPriority($core->blog->settings->sitemaps->sitemaps_related_pr);
+
+			$rs = $core->blog->getPosts(array('post_type' => 'related','post_status' => 1,'no_content' => true));
+			$rs->extend('rsRelated');
+				
+			while ($rs->fetch()) {
+				if ($rs->post_password != '') continue;
+				$sitemaps->addEntry($rs->getURL(),$prio,$freq,$rs->getISO8601Date());
+			}
+		}
+	}
+}
+
+$core->addBehavior('coreBlogGetPosts',    array('relatedPublicBehaviors','coreBlogGetPosts'));
+$core->addBehavior('publicBeforeDocument',array('relatedPublicBehaviors','addTplPath'));
+$core->addBehavior('templateBeforeBlock', array('relatedPublicBehaviors','templateBeforeBlock'));
+$core->addBehavior('sitemapsURLsCollect', array('relatedPublicBehaviors','sitemapsURLsCollect'));
+$core->addBehavior('initWidgets',array('widgetsRelated','init'));
+
+
+// Templates tags definition and binding
+/**
+ * 
+ */
+class relatedTemplates
+{
+	/**
+	 * 
+	 */
 	public static function PageContent($attr)
 	{
 		global $core, $_ctx;
@@ -48,4 +121,6 @@ class tplRelated
 		return $p;
 	}
 }
+
+$core->tpl->addValue('EntryContent', array('relatedTemplates', 'PageContent'));
 ?>

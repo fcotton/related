@@ -8,7 +8,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-require_once dirname(__FILE__).'/_widgets.php';
+if (!defined('DC_CONTEXT_ADMIN')) return;
 
 $_menu['Blog']->addItem(
 	__('Related pages'),
@@ -19,5 +19,22 @@ $_menu['Blog']->addItem(
 );
 
 $core->auth->setPermissionType('pages',__('manage related pages'));
-$core->addBehavior('sitemapsDefineParts',array('behaviorRelated','sitemapsDefineParts'));
+
+/**
+ * 
+ */
+class relatedAdminBehaviors
+{
+	/**
+	 * 
+	 */
+	public static function sitemapsDefineParts($map)
+	{	
+		$map[__('Related pages')] = 'related';
+	}
+
+}
+
+$core->addBehavior('sitemapsDefineParts',array('relatedAdminBehaviors','sitemapsDefineParts'));
+$core->addBehavior('initWidgets',array('widgetsRelated','init'));
 ?>

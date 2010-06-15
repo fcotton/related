@@ -8,7 +8,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) exit;
+if (!defined('DC_CONTEXT_ADMIN')) return;
 
 $this_version = $core->plugins->moduleInfo('related','version');
 $installed_version = $core->getVersion('related');

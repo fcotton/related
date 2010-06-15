@@ -8,7 +8,9 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-$core->addBehavior('initWidgets',array('widgetsRelated','init'));
+if (!defined('DC_RC_PATH')) return;
+
+//$core->addBehavior('initWidgets',array('widgetsRelated','init'));
 
 class widgetsRelated
 {

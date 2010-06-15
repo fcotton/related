@@ -8,7 +8,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-if (!defined('DC_CONTEXT_ADMIN')) exit;
+if (!defined('DC_CONTEXT_ADMIN')) return;
 
 $what = (!empty($_REQUEST['do']) && $_REQUEST['do'] == 'edit') ? 'page' : 'panel';
 if ($what == 'page') {
