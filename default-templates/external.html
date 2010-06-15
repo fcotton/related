@@ -4,17 +4,26 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="MSSmartTagsPreventParsing" content="TRUE" />
+  <meta name="ROBOTS" content="{{tpl:BlogMetaRobots}}" />
+
   <title>{{tpl:EntryTitle encode_html="1"}} - {{tpl:BlogName encode_html="1"}}</title>
-  
-  <link rel="schema.DC" href="http://purl.org/DC/elements/1.0/" />
-  <meta name="DC.Title" content="{{tpl:EntryTitle encode_html="1"}}" />
-  <meta name="DC.Creator" content="{{tpl:EntryAuthorDisplayName}}" />
-  <meta name="DC.Language" scheme="rfc1766" content="{{tpl:EntryLang}}" />
+  <meta name="copyright" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="author" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
+  <meta name="date" scheme="W3CDTF" content="{{tpl:EntryDate iso8601="1"}}" />
+
+  <link rel="schema.dc" href="http://purl.org/dc/elements/1.1/" />
+  <meta name="dc.title" content="{{tpl:EntryTitle encode_html="1"}}" />
+  <meta name="dc.creator" content="{{tpl:EntryAuthorCommonName encode_html="1"}}" />
+  <meta name="dc.language" content="{{tpl:EntryLang}}" />
+  <meta name="dc.publisher" content="{{tpl:BlogEditor encode_html="1"}}" />
+  <meta name="dc.rights" content="{{tpl:BlogCopyrightNotice encode_html="1"}}" />
+  <meta name="dc.date" scheme="W3CDTF" content="{{tpl:EntryDate iso8601="1"}}" />
+  <meta name="dc.type" content="text" />
+  <meta name="dc.format" content="text/html" />
   
   <link rel="top" href="{{tpl:BlogURL}}" title="{{tpl:lang Home}}" />
   <link rel="contents" href="{{tpl:BlogArchiveURL}}" title="{{tpl:lang Archives}}" />
   
-  <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="{{tpl:BlogFeedURL type="rss2"}}" />
   <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="{{tpl:BlogFeedURL type="atom"}}" />
   
   {{tpl:include src="_head.html"}}
@@ -30,9 +39,10 @@
 <div id="main">
   <div id="content">
   
-  <div class="post">
-    <h2 id="p{{tpl:EntryID}}" class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
+  <div id="p{{tpl:EntryID}}" class="post">
+    <h2 class="post-title">{{tpl:EntryTitle encode_html="1"}}</h2>
     
+    <!-- # --BEHAVIOR-- publicEntryBeforeContent -->
     {{tpl:SysBehavior behavior="publicEntryBeforeContent"}}
     
     <tpl:EntryIf extended="1">
@@ -43,6 +53,7 @@
     <p class="page-info">{{tpl:lang Published on}} {{tpl:EntryDate}}
     {{tpl:lang by}} {{tpl:EntryAuthorLink}}</p>
     
+    <!-- # --BEHAVIOR-- publicEntryAfterContent -->
     {{tpl:SysBehavior behavior="publicEntryAfterContent"}}
   </div>
   </div>
