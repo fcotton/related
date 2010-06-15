@@ -22,6 +22,9 @@ $(function() {
 		}
 		excerptTb.context = 'post';
 	}
+
+	// Post preview
+	$('#post-preview').modalWeb($(window).width()-40,$(window).height()-40);
 	
 	// Tabs events
 	$('#edit-entry').onetabload(function() {

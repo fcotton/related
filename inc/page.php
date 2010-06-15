@@ -9,8 +9,9 @@
 #
 # -- END LICENSE BLOCK ------------------------------------
 if (!defined('DC_CONTEXT_ADMIN')) exit;
-dcPage::check('pages,contentadmin');$post_id = '';
+dcPage::check('pages,contentadmin');
 
+$post_id = '';
 $cat_id = '';
 $post_dt = '';
 $post_type = 'related';
@@ -338,6 +339,7 @@ if (!$can_edit_post || !empty($_POST['preview'])) {
 <?php
 echo dcPage::jsDatePicker().
 	dcPage::jsToolBar().
+  	dcPage::jsModal().
 	dcPage::jsLoad(DC_ADMIN_URL.'?pf=related/js/_page.js').
 	dcPage::jsConfirmClose('entry-form').
 	# --BEHAVIOR-- adminRelatedHeaders
@@ -347,7 +349,6 @@ echo dcPage::jsDatePicker().
 </head>
 
 <body>
-	<h2><?php echo html::escapeHTML($core->blog->name); ?> &gt; <a href="<?php echo $p_url; ?>"><?php echo __('Related pages'); ?></a></h2>
 <?php
 if (!empty($_GET['upd'])) {
 		echo '<p class="message">'.__('Page has been successfully updated.').'</p>';
@@ -355,39 +356,26 @@ if (!empty($_GET['upd'])) {
 elseif (!empty($_GET['crea'])) {
 		echo '<p class="message">'.__('Page has been successfully created.').'</p>';
 }
+?>
 
-if ($post_id)
-{
-	echo '<p>';
-	if ($post->post_status == 1) {
-		echo '<a href="'.$post->getURL().'">'.__('view page').'</a>';
-	} else {
-		echo __('view page');
-	}
-	echo '</p>';
+	<h2><?php echo html::escapeHTML($core->blog->name); ?> &gt; <a href="<?php echo $p_url; ?>"><?php echo __('Related pages'); ?></a>
+
+<?php
+if ($post_id && $post->post_status == 1) {
+	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View page').'</a>';
+} elseif ($post_id) {
+	$preview_url =
+	$core->blog->url.$core->url->getBase('pagespreview').'/'.
+	$core->auth->userID().'/'.
+	http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
+	'/'.$post->post_url;
+	echo ' - <a id="post-preview" href="'.$preview_url.'" class="button">'.__('Preview page').'</a>';
 }
+echo '</h2>';
 
 # Exit if we cannot view page
 if (!$can_view_page) {
 	exit;
-}
-
-if ($page_isfile && $post_excerpt_xhtml)
-{
-	echo
-	'<div id="preview-entry" class="multi-part" title="'.__('Page preview').'">'.
-	'<h3>'.html::escapeHTML($post_title).'</h3>'.
-	html::absoluteURLs($post_excerpt_xhtml,$core->blog->url).
-	'</div>';
-}	
-elseif (!$page_isfile && $post_content_xhtml)
-{
-	echo
-	'<div id="preview-entry" class="multi-part" title="'.__('Page preview').'">'.
-	'<h3>'.html::escapeHTML($post_title).'</h3>'.
-	($post_excerpt_xhtml ? html::absoluteURLs($post_excerpt_xhtml,$core->blog->url).'<hr />' : '').
-	html::absoluteURLs($post_content_xhtml,$core->blog->url).
-	'</div>';
 }
 
 /* Page form if we can edit page
@@ -496,8 +484,6 @@ if ($can_edit_post)
 	($post_id ? form::hidden('id',$post_id) : '').
 	'<input type="submit" value="'.__('save').' (s)" tabindex="4" '.
 	'accesskey="s" name="save" /> '.
-	'<input type="submit" value="'.__('preview').' (p)" tabindex="4" '.
-	'accesskey="p" name="preview" /> '.
 	($can_delete ? '<input type="submit" value="'.__('delete').'" name="delete" />' : '').
 	'</p>';
 	

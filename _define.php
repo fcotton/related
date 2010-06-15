@@ -12,7 +12,7 @@ $this->registerModule(
 	/* Name */		"Related Pages",
 	/* Description*/	"Serve pages & scripts",
 	/* Author */		"Pep and contributors",
-	/* Version */		'1.1-alpha2',
+	/* Version */		'1.1-alpha3',
 	/* Permissions */	'contentadmin,pages'
 );
 ?>

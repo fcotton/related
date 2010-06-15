@@ -19,6 +19,7 @@ $url_prefix = $core->blog->settings->related->related_url_prefix;
 $url_prefix = (empty($url_prefix))?'static':$url_prefix;
 $url_pattern = $url_prefix.'/(.+)$';
 $core->url->register('related',$url_prefix,$url_pattern,array('urlRelated','related'));
+$core->url->register('relatedpreview','relatedpreview','^pagespreview/(.+)$',array('urlRelated','relatedpreview'));
 unset($url_prefix,$url_pattern);
 
 // Registering new post_type
@@ -53,7 +54,7 @@ class urlRelated extends dcUrlHandlers
 		$post_password = $_ctx->posts->post_password;
 
 		# Password protected entry
-		if ($post_password != '')
+		if ($post_password != '' && !$_cxt->preview)
 		{
 			# Get passwords cookie
 			if (isset($_COOKIE['dc_passwd'])) {
@@ -81,6 +82,32 @@ class urlRelated extends dcUrlHandlers
 		}
 
 		self::serveDocument('external.html');
+	}
+
+	public static function relatedpreview($args)
+	{
+		$core = $GLOBALS['core'];
+		$_ctx = $GLOBALS['_ctx'];
+		
+		if (!preg_match('#^(.+?)/([0-9a-z]{40})/(.+?)$#',$args,$m)) {
+			# The specified Preview URL is malformed.
+			self::p404();
+		}
+		else
+		{
+			$user_id = $m[1];
+			$user_key = $m[2];
+			$post_url = $m[3];
+			if (!$core->auth->checkUser($user_id,null,$user_key)) {
+				# The user has no access to the entry.
+				self::p404();
+			}
+			else
+			{
+				$_ctx->preview = true;
+				self::related($post_url);
+			}
+		}
 	}
 }
 
