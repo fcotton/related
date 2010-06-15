@@ -8,7 +8,7 @@
 # http://www.gnu.org/licenses/old-licenses/gpl-2.0.html
 #
 # -- END LICENSE BLOCK ------------------------------------
-class rsRelated
+class rsRelated extends rsRelatedBase
 {
 	public static function isEditable($rs)
 	{
@@ -44,39 +44,6 @@ class rsRelated
 		}
 		
 		return false;
-	}
-
-	public static function getRelatedFilename($rs)
-	{
-		if ($rs->core->blog->settings->related->related_files_path === null) return false;
-		
-		$meta = new dcMeta($rs->core);
-		$meta_rs = $meta->getMetaRecordset($rs->post_meta,'related_file');
-		
-		if (!$meta_rs->isEmpty()) {
-			$filename = $rs->core->blog->settings->related->related_files_path.'/'.$meta_rs->meta_id;
-			if (file_exists($filename) && is_readable($filename)) {
-				return $filename;
-			} else {
-				return false;
-			}
-		}
-		
-		return false;
-	}
-
-	public static function getPosition($rs)
-	{
-		if ($rs->core->blog->settings->related->related_files_path === null) return false;
-		
-		$meta = new dcMeta($rs->core);
-		$meta_rs = $meta->getMetaRecordset($rs->post_meta,'related_position');
-		
-		if (!$meta_rs->isEmpty()) {
-			return (integer)$meta_rs->meta_id;
-		}
-			
-		return -1;
 	}
 }
 
@@ -149,36 +116,6 @@ class adminPageList extends adminGenericList
 		'</tr>';
 		
 		return $res;
-	}
-}
-
-class dcRelated
-{
-	public static function getPublicList($rs)
-	{
-		if (!$rs || $rs->isEmpty()) return;
-		
-		$res = array();
-		while ($rs->fetch()) {
-			if ($rs->post_status != 1) continue;
-			if (($pos = $rs->getPosition()) === null) continue;
-			if ($pos <= 0) $pos = 10000;
-			$res[] = array(
-				'id' => $rs->post_id,
-				'title' => $rs->post_title,
-				'url'   => $rs->getURL(),
-				'active' => $rs->post_selected,
-				'order'  => $pos
-				);
-		}
-		usort($res,array('dcRelated','orderCallBack'));
-		return $res;
-	}
-	
-	protected static function orderCallBack($a,$b)
-	{
-		if ($a['order'] == $b['order']) return 0;		
-		return $a['order'] > $b['order'] ? 1 : -1;
 	}
 }
 ?>

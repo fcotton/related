@@ -66,7 +66,7 @@ if (isset($_POST['pages_upd']))
 {
 	$default_tab = 'pages_order';
 	
-	$public_pages = dcRelated::getPublicList($pages);
+	$public_pages = relatedHelpers::getPublicList($pages);
 	$visible = (!empty($_POST['p_visibles']) && is_array($_POST['p_visibles']))?$_POST['p_visibles']:array();
 	$order = (!empty($_POST['public_order']))?explode(',',$_POST['public_order']):array();
 	
@@ -145,7 +145,7 @@ if (isset($_POST['saveconfig']))
 		?>
 	</head>
 	<body>
-		<h2><?php echo html::escapeHTML($core->blog->name); ?> &gt; <?php echo __('Related pages'); ?></h2>
+		<h2><?php echo html::escapeHTML($core->blog->name); ?> &rsaquo; <?php echo __('Related pages'); ?></h2>
 		<?php if (!empty($msg)) echo '<p class="message">'.$msg.'</p>'; ?>
 
 <?php
@@ -179,7 +179,7 @@ echo
 '<div class="multi-part" id="pages_order" title="'.__('Arrange public list').'">';
 if (!$core->error->flag())
 {
-	$public_pages = dcRelated::getPublicList($pages);
+	$public_pages = relatedHelpers::getPublicList($pages);
 	if (!empty($public_pages))
 	{
 		echo

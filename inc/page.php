@@ -357,11 +357,9 @@ if (!empty($_GET['upd'])) {
 elseif (!empty($_GET['crea'])) {
 		echo '<p class="message">'.__('Page has been successfully created.').'</p>';
 }
-?>
 
-	<h2><?php echo html::escapeHTML($core->blog->name); ?> &gt; <a href="<?php echo $p_url; ?>"><?php echo __('Related pages'); ?></a>
+echo '<h2>'.html::escapeHTML($core->blog->name).' &rsaquo; <a href="'.$p_url.'">'.__('Related pages').'</a> &rsaquo; '.$page_title;
 
-<?php
 if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View page').'</a>';
 } elseif ($post_id) {

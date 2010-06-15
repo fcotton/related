@@ -51,7 +51,7 @@ class relatedPublicBehaviors
 	 */
 	public static function coreBlogGetPosts($rs)
 	{
-		$rs->extend("rsRelated");
+		$rs->extend("rsRelatedBase");
 	}
 
 	/**

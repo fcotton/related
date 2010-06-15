@@ -12,7 +12,7 @@ if (!defined('DC_RC_PATH')) return;
 
 global $__autoload, $core;
 
-$__autoload['dcRelated']		= dirname(__FILE__).'/inc/lib.related.php';
+$__autoload['dcRelated']		= dirname(__FILE__).'/inc/widgets.php';
 $__autoload['rsRelated']		= dirname(__FILE__).'/inc/lib.related.php';
 $__autoload['adminPageList']	= dirname(__FILE__).'/inc/lib.related.php';
 $__autoload['widgetsRelated'] = dirname(__FILE__).'/inc/widgets.php';
@@ -49,7 +49,7 @@ class relatedUrlHandlers extends dcUrlHandlers
 		$params['post_url'] = $args;
 		$params['post_type'] = 'related';
 		$_ctx->posts = $core->blog->getPosts($params);
-		$_ctx->posts->extend('rsRelated');
+		$_ctx->posts->extend('rsRelatedBase');
 
 		$core->blog->withoutPassword(true);
 
@@ -115,6 +115,46 @@ class relatedUrlHandlers extends dcUrlHandlers
 				self::related($post_url);
 			}
 		}
+	}
+}
+
+/**
+ * 
+ */
+class rsRelatedBase
+{
+	public static function getRelatedFilename($rs)
+	{
+		if ($rs->core->blog->settings->related->related_files_path === null) return false;
+		
+		$meta = new dcMeta($rs->core);
+		$meta_rs = $meta->getMetaRecordset($rs->post_meta,'related_file');
+		
+		if (!$meta_rs->isEmpty()) {
+			$filename = $rs->core->blog->settings->related->related_files_path.'/'.$meta_rs->meta_id;
+			if (file_exists($filename) && is_readable($filename)) {
+				return $filename;
+			}
+			else {
+				return false;
+			}
+		}
+		
+		return false;
+	}
+
+	public static function getPosition($rs)
+	{
+		if ($rs->core->blog->settings->related->related_files_path === null) return false;
+		
+		$meta = new dcMeta($rs->core);
+		$meta_rs = $meta->getMetaRecordset($rs->post_meta,'related_position');
+		
+		if (!$meta_rs->isEmpty()) {
+			return (integer)$meta_rs->meta_id;
+		}
+			
+		return -1;
 	}
 }
 ?>
