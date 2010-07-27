@@ -14,7 +14,7 @@ $this->registerModule(
 	/* Name */		"Related Pages",
 	/* Description*/	"Serve pages & scripts",
 	/* Author */		"Pep and contributors",
-	/* Version */		'1.1-RC1',
+	/* Version */		'1.1-RC2',
 	/* Permissions */	'contentadmin,pages'
 );
 ?>

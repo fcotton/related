@@ -364,7 +364,7 @@ if ($post_id && $post->post_status == 1) {
 	echo ' - <a id="post-preview" href="'.$post->getURL().'" class="button">'.__('View page').'</a>';
 } elseif ($post_id) {
 	$preview_url =
-	$core->blog->url.$core->url->getBase('pagespreview').'/'.
+	$core->blog->url.$core->url->getBase('relatedpreview').'/'.
 	$core->auth->userID().'/'.
 	http::browserUID(DC_MASTER_KEY.$core->auth->userID().$core->auth->getInfo('user_pwd')).
 	'/'.$post->post_url;

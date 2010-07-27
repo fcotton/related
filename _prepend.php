@@ -22,7 +22,7 @@ $url_prefix = $core->blog->settings->related->related_url_prefix;
 $url_prefix = (empty($url_prefix))?'static':$url_prefix;
 $url_pattern = $url_prefix.'/(.+)$';
 $core->url->register('related',$url_prefix,$url_pattern,array('relatedUrlHandlers','related'));
-$core->url->register('relatedpreview','relatedpreview','^pagespreview/(.+)$',array('relatedUrlHandlers','relatedpreview'));
+$core->url->register('relatedpreview','relatedpreview','^relatedpreview/(.+)$',array('relatedUrlHandlers','relatedpreview'));
 unset($url_prefix,$url_pattern);
 
 // Registering new post_type
